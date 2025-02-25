@@ -1,0 +1,15 @@
+.header {
+  background-color: var(--purple-night);
+  padding: 20px 0;
+  border-bottom: 2px solid var(--lulu);
+  box-shadow: var(--botdeaux) 0px 1px 5px;
+}
+
+.containerHeader {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 0;
+  padding-bottom: 0;
+  flex-wrap: wrap;
+}

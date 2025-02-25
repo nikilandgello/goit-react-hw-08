@@ -1,0 +1,32 @@
+.searchBox {
+  margin: 0 auto;
+  max-width: 400px;
+  min-height: 71px;
+}
+
+.text {
+  font-size: 18px;
+}
+
+.input {
+  width: 100%;
+  background-color: var(--lulu);
+  outline: none;
+  border: 1px solid var(--botdeaux);
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(--cardinal);
+  font-size: 16px;
+  box-shadow: var(--botdeaux) 0px 4px 12px;
+  transition: border 0.25s;
+  font-family: var(--font-family);
+}
+
+.input:hover,
+.input:focus-within {
+  border: 1px solid var(--light-cardinal);
+}
+
+.input::placeholder {
+  color: var(--botdeaux);
+}

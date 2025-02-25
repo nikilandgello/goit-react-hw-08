@@ -1,0 +1,24 @@
+.contactList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+
+  gap: 20px;
+}
+
+.contactItem {
+  width: 100%;
+  border: 1px solid var(--botdeaux);
+  border-radius: 5px;
+  background-color: var(--lulu);
+  box-shadow: var(--botdeaux) 0px 4px 12px;
+  padding: 10px 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .contactList {
+    justify-content: center;
+    align-items: center;
+  }
+}

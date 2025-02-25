@@ -1,0 +1,35 @@
+.logo {
+  color: var(--light-cardinal);
+  font-size: 40px;
+  font-weight: 600;
+
+  transition: color 0.25s;
+}
+
+.logo:hover {
+  color: var(--cardinal);
+}
+
+.buttonTheme {
+  background-color: transparent;
+  border: none;
+  width: 48px;
+  height: 48px;
+}
+
+.buttonTheme:hover {
+  background-color: transparent;
+  transform: scale(1);
+  border: none;
+}
+
+.iconDark,
+.iconLight {
+  fill: var(--light-cardinal);
+  transition: fill 0.25s;
+}
+
+.iconDark:hover,
+.iconLight:hover {
+  fill: var(--cardinal);
+}

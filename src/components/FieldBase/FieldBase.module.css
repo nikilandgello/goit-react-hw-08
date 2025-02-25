@@ -1,0 +1,48 @@
+.groupForm {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 20px;
+  text-align: start;
+}
+
+.labelForm {
+  transition: color 0.25s;
+}
+
+.inputForm {
+  background-color: transparent;
+  outline: none;
+  border: 1px solid var(--botdeaux);
+  border-radius: 5px;
+  padding: 10px 15px;
+  color: var(----cardinal);
+  font-size: 17px;
+  font-family: var(--font-family);
+
+  transition: border 0.25s;
+}
+
+.textareaForm {
+  resize: none;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 160px;
+}
+
+.inputForm::placeholder {
+  color: var(--botdeaux);
+}
+
+.groupForm:hover .labelForm {
+  color: var(--light-cardinal);
+}
+
+.groupForm:hover .inputForm,
+.inputForm:focus-within {
+  border: 1px solid var(--light-cardinal);
+}
+
+.errorMessage {
+  color: var(--light-cardinal) !important;
+}
