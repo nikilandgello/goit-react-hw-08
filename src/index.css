@@ -10,9 +10,7 @@ html {
 
 body {
   font-family: 'Courier New', monospace;
-
   line-height: 1.5;
-
   margin: 0;
 
   color: var(--cardinal);
@@ -45,8 +43,8 @@ body {
   --purple-night: #b48bac;
   --botdeaux: #b26d81;
   --light-burgundy: #9b535e;
-  --cardinal: #bd4855;
-  --light-cardinal: #d95362;
+  --cardinal: #ad4551;
+  --light-cardinal: #cf5563;
 }
 
 h1,
@@ -85,17 +83,10 @@ button {
   transition: border 0.25s, background-color 0.25s, transform 0.25s;
 }
 
-/* button:hover {
-  border: 1px solid var(--botdeaux);
-  background-color: var(--light-burgundy);
-  transform: scale(1.1);
-} */
-
 button:hover {
   border: 1px solid var(--botdeaux);
   background-color: var(--light-burgundy);
-  transform: scale(1.1) translateZ(0);
-  transform-origin: center;
+  transform: scale(1.1);
 }
 
 img {
@@ -137,4 +128,75 @@ img {
     max-width: 1130px;
     padding: 30px 65px;
   }
+}
+
+.background {
+  position: relative;
+  min-height: 100vh;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.background::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background: url('/pattern.svg') repeat;
+  background-size: 100px 150px;
+  z-index: -1;
+}
+
+.link {
+  position: relative;
+
+  line-height: 1.5;
+  font-size: 18px;
+  color: var(--cardinal);
+  font-weight: 600;
+  margin-right: 20px;
+  padding: 10px 0;
+}
+
+.active {
+  position: relative;
+  color: var(--light-cardinal);
+}
+
+.link::after,
+.active::after {
+  position: absolute;
+  content: '';
+  right: 0;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background-color: var(--light-cardinal);
+  transition: width 0.3s ease-in-out;
+}
+
+.link::before {
+  position: absolute;
+  content: '';
+  left: 0;
+  bottom: 8px;
+  width: 0;
+  height: 2px;
+  background-color: var(--light-cardinal);
+  transition: width 0.3s ease-in-out;
+}
+
+.link:hover {
+  color: var(--light-cardinal);
+}
+
+.link:hover::after,
+.link:hover::before {
+  width: 50%;
+}
+
+.active::after {
+  width: 50%;
 }

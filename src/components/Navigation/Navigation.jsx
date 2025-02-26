@@ -3,7 +3,7 @@ import css from './Navigation.module.css';
 import { NavLink } from 'react-router-dom';
 
 const buildLinkClass = ({ isActive }) => {
-  return clsx(css.link, isActive && css.active);
+  return clsx('link', isActive && 'active');
 };
 
 const Navigation = () => {

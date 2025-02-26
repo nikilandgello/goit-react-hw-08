@@ -12,4 +12,5 @@
   padding-top: 0;
   padding-bottom: 0;
   flex-wrap: wrap;
+  gap: 5px;
 }

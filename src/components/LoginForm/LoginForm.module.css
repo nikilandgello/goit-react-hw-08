@@ -1,0 +1,17 @@
+.block {
+  max-width: 400px;
+  margin: 0 auto;
+  border: 1px solid var(--botdeaux);
+  border-radius: 5px;
+  padding: 25px 15px;
+  background-color: var(--lulu);
+  box-shadow: var(--botdeaux) 0px 4px 12px;
+}
+
+.buttonForm {
+  display: inline-flex;
+
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-size: 15px;
+}

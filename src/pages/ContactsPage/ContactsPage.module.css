@@ -1,22 +1,3 @@
-.background {
-  position: relative;
-  min-height: 100vh;
-  max-height: 100%;
-  overflow: hidden;
-}
-
-.background::before {
-  content: '';
-  position: absolute;
-  top: -60px;
-  left: -50px;
-  right: -50px;
-  bottom: -50px;
-  background: url('/pattern.svg') repeat;
-  background-size: 100px 150px;
-  z-index: -1;
-}
-
 .noContacts {
   text-align: center;
   padding-top: 25px;

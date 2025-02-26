@@ -4,15 +4,20 @@ import Navigation from '../Navigation/Navigation';
 import TopPanel from '../TopPanel/TopPanel';
 import AuthNav from '../AuthNav/AuthNav';
 import UserMenu from '../UserMenu/UserMenu';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
 
 const AppBar = () => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  // const user = useSelector(selectUser);
+
   return (
     <header className={css.header}>
       <div className={clsx('container', css.containerHeader)}>
         <TopPanel />
         <Navigation />
-        <AuthNav />
-        <UserMenu />
+        {!isLoggedIn && <AuthNav />}
+        {isLoggedIn && <UserMenu />}
       </div>
     </header>
   );

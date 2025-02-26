@@ -30,3 +30,9 @@
 .input::placeholder {
   color: var(--botdeaux);
 }
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+  .text {
+    font-size: 17px;
+  }
+}

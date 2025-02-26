@@ -34,6 +34,14 @@
   .contact {
     font-weight: 500;
   }
+
+  .contactDescription {
+    font-size: 14px;
+  }
+
+  .button {
+    margin-left: 0;
+  }
 }
 
 @media screen and (min-width: 768px) {

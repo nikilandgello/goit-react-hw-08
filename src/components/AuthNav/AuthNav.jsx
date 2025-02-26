@@ -3,12 +3,12 @@ import css from './AuthNav.module.css';
 import clsx from 'clsx';
 
 const buildLinkClass = ({ isActive }) => {
-  return clsx(css.link, isActive && css.active);
+  return clsx('link', isActive && 'active');
 };
 
 const AuthNav = () => {
   return (
-    <div>
+    <div className={css.authLink}>
       <NavLink className={buildLinkClass} to="/register">
         Register
       </NavLink>
