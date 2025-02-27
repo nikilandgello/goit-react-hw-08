@@ -21,6 +21,7 @@ body {
   --font-family: 'Courier New', monospace;
   --mavka: #200b31;
   --lulu: #3d0d35;
+  --lulu-dark: #33092c;
   --purple-night: #541033;
   --botdeaux: #731536;
   --light-burgundy: #8e1737;
@@ -40,6 +41,7 @@ body {
 [data-theme='light'] {
   --mavka: #cdc7c7;
   --lulu: #d9a5b3;
+  --lulu-dark: #d196a6;
   --purple-night: #b48bac;
   --botdeaux: #b26d81;
   --light-burgundy: #9b535e;
@@ -133,7 +135,6 @@ img {
 .background {
   position: relative;
   min-height: 100vh;
-  max-height: 100%;
   overflow: hidden;
 }
 
@@ -147,6 +148,7 @@ img {
   background: url('/pattern.svg') repeat;
   background-size: 100px 150px;
   z-index: -1;
+  filter: blur(2px);
 }
 
 .link {

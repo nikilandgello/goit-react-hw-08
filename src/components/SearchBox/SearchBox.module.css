@@ -8,16 +8,21 @@
   font-size: 18px;
 }
 
+.filterBox {
+  display: flex;
+}
+
 .input {
   width: 100%;
   background-color: var(--lulu);
   outline: none;
   border: 1px solid var(--botdeaux);
-  border-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
   padding: 10px 15px;
   color: var(--cardinal);
   font-size: 16px;
-  box-shadow: var(--botdeaux) 0px 4px 12px;
+  box-shadow: var(--botdeaux) 1px 1px 9px, var(--botdeaux) 1px -1px 9px;
   transition: border 0.25s;
   font-family: var(--font-family);
 }

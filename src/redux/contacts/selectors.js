@@ -1,17 +1,25 @@
 import { createSelector } from 'reselect';
-import { selectNameFilter } from '../filters/selectors';
+import { selectFilterBy, selectNameFilter } from '../filters/selectors';
 
 export const selectContacts = state => state.contacts.items;
 export const selectLoading = state => state.contacts.loading;
 export const selectError = state => state.contacts.error;
 
 export const selectFilteredContacts = createSelector(
-  [selectContacts, selectNameFilter],
-  (contacts, filter) => {
+  [selectContacts, selectNameFilter, selectFilterBy],
+  (contacts, filter, filterBy) => {
     return contacts
-      .filter(contact =>
-        contact.name.toLowerCase().includes(filter.toLowerCase())
-      )
+      .filter(contact => {
+        if (filterBy === 'name') {
+          return contact.name.toLowerCase().includes(filter.toLowerCase());
+        }
+
+        if (filterBy === 'number') {
+          return contact.number.includes(filter);
+        }
+
+        return true;
+      })
       .sort((a, b) => a.name.trim().localeCompare(b.name.trim()));
   }
 );

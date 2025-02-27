@@ -52,7 +52,7 @@ const Contact = ({ data: { id, number, name } }) => {
         <button
           className={css.button}
           onClick={() => {
-            dispatch(deleteContact(id));
+            dispatch(deleteContact({ id, name }));
           }}
         >
           Delete

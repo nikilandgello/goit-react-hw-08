@@ -17,12 +17,12 @@ export const fetchContacts = createAsyncThunk(
 
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
-  async (id, thunkAPI) => {
+  async ({ id, name }, thunkAPI) => {
     try {
       await toast.promise(api.delete(`contacts/${id}`), {
-        loading: 'Deleting contact...',
-        success: 'Contact deleted successfully!',
-        error: 'Oops... something went wrong',
+        loading: `Deleting contact "${name}"...`,
+        success: `Contact "${name}" deleted successfully!`,
+        error: `Failed to delete contact "${name}". Please try again.`,
       });
       return id;
     } catch (error) {
@@ -36,9 +36,9 @@ export const addContact = createAsyncThunk(
   async (body, thunkAPI) => {
     try {
       const contact = await toast.promise(api.post('contacts', body), {
-        loading: 'Adding contact...',
-        success: `${body.firstname} added successfully!`,
-        error: 'Oops... something went wrong',
+        loading: `Adding contact "${body.name}"...`,
+        success: `Contact "${body.name}" added successfully!`,
+        error: `Failed to add contact "${body.name}". Please try again.`,
       });
       return contact.data;
     } catch (error) {
@@ -49,16 +49,13 @@ export const addContact = createAsyncThunk(
 
 export const editContact = createAsyncThunk(
   'contacts/editContact',
-  async (body, thunkAPI) => {
+  async ({ id, ...body }, thunkAPI) => {
     try {
-      const contact = await toast.promise(
-        api.put(`contacts/${body.id}`, body),
-        {
-          loading: 'Updating contact...',
-          success: `${body.firstname} updated successfully`,
-          error: 'Oops... something went wrong',
-        }
-      );
+      const contact = await toast.promise(api.patch(`contacts/${id}`, body), {
+        loading: `Updating contact "${body.name}"...`,
+        success: `Contact "${body.name}" updated successfully!`,
+        error: `Failed to update contact "${body.name}". Please try again.`,
+      });
       return contact.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

@@ -4,6 +4,7 @@ import css from './RegisterForm.module.css';
 import FieldBase from '../FieldBase/FieldBase';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
+import { Link } from 'react-router-dom';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -36,6 +37,7 @@ const RegisterForm = () => {
   return (
     <div className="container">
       <div className={css.block}>
+        <h2 className={css.regTitle}>Register</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -60,6 +62,13 @@ const RegisterForm = () => {
             </button>
           </Form>
         </Formik>
+
+        <p className={css.link}>
+          Already have an account? <br />
+          <Link to="/login" className={css.linkreg}>
+            Login
+          </Link>
+        </p>
       </div>
     </div>
   );

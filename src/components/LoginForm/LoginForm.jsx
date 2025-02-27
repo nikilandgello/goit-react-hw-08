@@ -4,7 +4,7 @@ import css from './LoginForm.module.css';
 import FieldBase from '../FieldBase/FieldBase';
 import { useDispatch } from 'react-redux';
 import { login } from '../../redux/auth/operations';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
 const LoginForm = () => {
@@ -32,7 +32,7 @@ const LoginForm = () => {
       .unwrap()
       .then(res => {
         toast.success(`Welcome, ${res.user.name}`);
-        navigate('/contacts', { replace: true });
+        navigate('/', { replace: true });
       })
       .catch(() => {
         toast.error('Invalid data');
@@ -42,6 +42,7 @@ const LoginForm = () => {
   return (
     <div className="container">
       <div className={css.block}>
+        <h2 className={css.logTitle}>Login</h2>
         <Formik
           initialValues={initialValues}
           onSubmit={onSubmit}
@@ -65,6 +66,12 @@ const LoginForm = () => {
             </button>
           </Form>
         </Formik>
+        <p className={css.link}>
+          Don`t have an account? <br />
+          <Link to="/register" className={css.linkreg}>
+            Register
+          </Link>
+        </p>
       </div>
     </div>
   );
