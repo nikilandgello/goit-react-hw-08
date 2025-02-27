@@ -4,10 +4,12 @@ import css from './RegisterForm.module.css';
 import FieldBase from '../FieldBase/FieldBase';
 import { useDispatch } from 'react-redux';
 import { register } from '../../redux/auth/operations';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const RegisterForm = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const initialValues = {
     name: '',
     email: '',
@@ -31,7 +33,15 @@ const RegisterForm = () => {
   });
 
   const onSubmit = (values, actions) => {
-    dispatch(register(values));
+    dispatch(register(values))
+      .unwrap()
+      .then(res => {
+        toast.success(`Welcome, ${res.user.name}`);
+        navigate('/contacts', { replace: true });
+      })
+      .catch(() => {
+        toast.error('Invalid data');
+      });
     actions.resetForm();
   };
   return (

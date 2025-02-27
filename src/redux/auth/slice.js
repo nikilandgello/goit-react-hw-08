@@ -27,6 +27,7 @@ const slice = createSlice({
         state.token = action.payload.token;
         state.isLoggedIn = true;
       })
+
       .addCase(logout.fulfilled, () => initialState)
 
       .addCase(refreshUser.pending, state => {

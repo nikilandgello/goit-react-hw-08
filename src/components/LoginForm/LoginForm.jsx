@@ -32,7 +32,7 @@ const LoginForm = () => {
       .unwrap()
       .then(res => {
         toast.success(`Welcome, ${res.user.name}`);
-        navigate('/', { replace: true });
+        navigate('/contacts', { replace: true });
       })
       .catch(() => {
         toast.error('Invalid data');

@@ -1,7 +1,6 @@
-//register login logout refreshUser
-
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import toast from 'react-hot-toast';
 
 export const api = axios.create({
   baseURL: 'https://connections-api.goit.global/',
@@ -19,6 +18,15 @@ export const register = createAsyncThunk(
       setAuthHeader(data.token);
       return data;
     } catch (error) {
+      if (error.response && error.response.data.code === 11000) {
+        toast.error(
+          'Email is already registered. Please try a different address!'
+        );
+      } else {
+        toast.error(
+          'An error occurred during registration. Please try again later.'
+        );
+      }
       return thunkAPI.rejectWithValue(error.message);
     }
   }
