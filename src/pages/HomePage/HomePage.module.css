@@ -1,0 +1,40 @@
+.homeBack {
+  background-color: var(--lulu-opacity);
+  width: 100%;
+  padding: 40px 15px;
+
+  border-radius: 5px;
+  border: 1px solid var(--botdeaux);
+  box-shadow: var(--botdeaux) 0px 4px 12px;
+}
+
+.homeTitle {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 25px;
+}
+
+.text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.linkGetStart {
+  color: var(--cardinal);
+  font-weight: 600;
+  transition: color 0.25s;
+}
+
+.linkGetStart:hover {
+  color: var(--light-cardinal);
+}
+
+@media screen and (min-width: 768px) {
+  .homeTitle {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+}

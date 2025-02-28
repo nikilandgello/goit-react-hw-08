@@ -14,9 +14,11 @@ const AppBar = () => {
     <header className={css.header}>
       <div className={clsx('container', css.containerHeader)}>
         <TopPanel />
-        <Navigation />
-        {!isLoggedIn && <AuthNav />}
-        {isLoggedIn && <UserMenu />}
+        <div className={css.navContainer}>
+          <Navigation />
+          {!isLoggedIn && <AuthNav />}
+          {isLoggedIn && <UserMenu />}
+        </div>
       </div>
     </header>
   );

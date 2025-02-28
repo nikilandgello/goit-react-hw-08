@@ -21,6 +21,7 @@ body {
   --font-family: 'Courier New', monospace;
   --mavka: #200b31;
   --lulu: #3d0d35;
+  --lulu-opacity: rgb(61, 13, 53, 0.6);
   --lulu-dark: #33092c;
   --purple-night: #541033;
   --botdeaux: #731536;
@@ -41,6 +42,7 @@ body {
 [data-theme='light'] {
   --mavka: #cdc7c7;
   --lulu: #d9a5b3;
+  --lulu-opacity: rgb(217, 165, 179, 0.6);
   --lulu-dark: #d196a6;
   --purple-night: #b48bac;
   --botdeaux: #b26d81;

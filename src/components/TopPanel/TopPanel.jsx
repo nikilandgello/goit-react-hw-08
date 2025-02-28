@@ -5,7 +5,7 @@ import { ThemeContext } from '../../context/ThemeContext';
 const TopPanel = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
   return (
-    <div>
+    <div className={css.topPanel}>
       <a className={css.logo} href="/">
         Phonebook
       </a>
