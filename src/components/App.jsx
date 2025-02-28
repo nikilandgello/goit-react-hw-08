@@ -1,16 +1,19 @@
-import { useEffect } from 'react';
+import { lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import HomePage from '../pages/HomePage/HomePage';
 import Layout from './Layout';
-import RegistrationPage from '../pages/RegistrationPage/RegistrationPage';
-import LoginPage from '../pages/LoginPage/LoginPage';
-import ContactsPage from '../pages/ContactsPage/ContactsPage';
 import NotFound from '../pages/NotFound/NotFound';
 import { refreshUser } from '../redux/auth/operations';
 import { selectIsRefreshing } from '../redux/auth/selectors';
 import PrivateRoute from './PrivateRoute';
 import RestrictedRoute from './RestrictedRoute';
+
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const RegistrationPage = lazy(() =>
+  import('../pages/RegistrationPage/RegistrationPage')
+);
+const LoginPage = lazy(() => import('../pages/LoginPage/LoginPage'));
+const ContactsPage = lazy(() => import('../pages/ContactsPage/ContactsPage'));
 
 function App() {
   const dispatch = useDispatch();
@@ -21,8 +24,8 @@ function App() {
   }, [dispatch]);
 
   return isRefreshing ? null : (
-    <Routes>
-      <Route path="/" element={<Layout />}>
+    <Layout>
+      <Routes>
         <Route path="/" element={<HomePage />} />
         <Route
           path="register"
@@ -40,9 +43,9 @@ function App() {
             </PrivateRoute>
           }
         />
-      </Route>
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Layout>
   );
 }
 

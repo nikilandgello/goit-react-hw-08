@@ -76,6 +76,9 @@ const CustomSelect = ({ filer, handleChange, options }) => {
     dropdownIndicator: (provided, state) => ({
       ...provided,
       color: state.isFocused ? 'var(--light-cardinal)' : 'var(--cardinal)',
+      transform: state.selectProps.menuIsOpen
+        ? 'rotate(0deg)'
+        : 'rotate(180deg)',
       transition: 'all 0.25s',
       '&:hover': { color: 'var(--light-cardinal)' },
     }),

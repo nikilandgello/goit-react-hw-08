@@ -1,0 +1,18 @@
+.deleteTitle {
+  margin-bottom: 20px;
+}
+
+.textDelete {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.spanText {
+  font-weight: 600;
+}
+
+.button {
+  margin-top: 20px;
+  padding: 5px 5px;
+  font-size: 16px;
+}

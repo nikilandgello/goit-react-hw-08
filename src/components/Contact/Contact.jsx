@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import css from './Contact.module.css';
-import { openModal } from '../../redux/modal/slice';
-import { deleteContact } from '../../redux/contacts/operations';
+import { openModal, openModalContactDelete } from '../../redux/modal/slice';
 import { motion } from 'framer-motion';
 
 const Contact = ({ data: { id, number, name } }) => {
@@ -13,6 +12,17 @@ const Contact = ({ data: { id, number, name } }) => {
   const handleOpenModal = () => {
     dispatch(
       openModal({
+        id,
+        name,
+        number,
+      })
+    );
+    document.body.style.overflow = 'hidden';
+  };
+
+  const handleOpenModalContactDelete = () => {
+    dispatch(
+      openModalContactDelete({
         id,
         name,
         number,
@@ -49,12 +59,7 @@ const Contact = ({ data: { id, number, name } }) => {
         <button className={css.button} onClick={handleOpenModal}>
           Edit
         </button>
-        <button
-          className={css.button}
-          onClick={() => {
-            dispatch(deleteContact({ id, name }));
-          }}
-        >
+        <button className={css.button} onClick={handleOpenModalContactDelete}>
           Delete
         </button>
       </div>

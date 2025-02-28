@@ -11,6 +11,8 @@ import ContactList from '../../components/ContactList/ContactList';
 import ContactEditForm from '../../components/ContactEditForm/ContactEditForm';
 import { useEffect } from 'react';
 import { fetchContacts } from '../../redux/contacts/operations';
+import Loader from '../../components/Loader/Loader';
+import ContactDeleteModal from '../../components/ContactDeleteModal/ContactDeleteModal';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -26,7 +28,7 @@ const ContactsPage = () => {
     <main>
       <div className="background">
         <ContactForm />
-        {loading && !error && <p className={css.loading}>loading...</p>}
+        {loading && !error && <Loader />}
         {!loading && !error && contacts.length > 0 && <SearchBox />}
         {!loading && !error && contacts.length === 0 && (
           <h2 className={css.noContacts}>You have no contacts!</h2>
@@ -34,6 +36,7 @@ const ContactsPage = () => {
         <ContactList />
       </div>
       <ContactEditForm />
+      <ContactDeleteModal />
     </main>
   );
 };
