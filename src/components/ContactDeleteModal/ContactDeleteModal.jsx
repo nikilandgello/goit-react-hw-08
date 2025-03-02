@@ -25,6 +25,7 @@ const ContactDeleteModal = () => {
       );
     }
     dispatch(closeModalContactDelete());
+    document.body.style.overflow = '';
   };
 
   if (!selectContact) {
