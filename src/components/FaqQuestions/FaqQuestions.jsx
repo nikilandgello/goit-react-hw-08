@@ -44,7 +44,7 @@ const FaqQuestions = ({ faqs }) => {
                   }}
                   exit={{ opacity: 0, height: 0, visibility: 'hidden' }}
                   transition={{
-                    opacity: { duration: 0.25 },
+                    opacity: { duration: 0.5 },
                     height: { duration: 0.25 },
                     visibility: { duration: 0 },
                   }}

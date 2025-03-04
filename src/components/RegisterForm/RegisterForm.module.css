@@ -36,3 +36,37 @@
 .linkreg:hover {
   color: var(--light-cardinal);
 }
+
+.passwordContainer {
+  position: relative;
+}
+
+.passwordStrength {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.strengthBar {
+  font-size: 14px;
+}
+
+.strength0 {
+  color: #c10202;
+}
+
+.strength1 {
+  color: #c27800;
+}
+
+.strength2 {
+  color: #c9a101;
+}
+
+.strength3 {
+  color: #39ab00;
+}
+
+.strength4 {
+  color: #006200;
+}

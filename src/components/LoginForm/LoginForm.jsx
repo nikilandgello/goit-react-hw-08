@@ -17,13 +17,13 @@ const LoginForm = () => {
 
   const FeedbackSchema = Yup.object().shape({
     email: Yup.string()
-      .min(5, 'Too Short!')
-      .max(50, 'Too Long!')
-      .email('Must be a valid email')
+      .min(5, 'Min. 5 characters')
+      .max(30, 'Max. 30 characters')
+      .matches(/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/, 'Invalid email format')
       .required('Required'),
     password: Yup.string()
-      .min(8, 'Too Short!')
-      .max(13, 'Too Long!')
+      .min(8, 'Min. 8 characters')
+      .max(20, 'Max. 13 characters')
       .required('Required'),
   });
 
@@ -54,12 +54,14 @@ const LoginForm = () => {
               label="Email"
               placeholder="Enter email"
               type="email"
+              autoComplete="current-email"
             />
             <FieldBase
               name="password"
               label="Password"
               placeholder="Enter password"
               type="password"
+              autoComplete="current-password"
             />
             <button type="submit" className={css.buttonForm}>
               Login

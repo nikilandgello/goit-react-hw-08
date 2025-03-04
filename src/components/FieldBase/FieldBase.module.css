@@ -10,17 +10,44 @@
   transition: color 0.25s;
 }
 
+.inputContainer {
+  position: relative;
+}
+
 .inputForm {
   background-color: transparent;
   outline: none;
   border: 1px solid var(--botdeaux);
   border-radius: 5px;
   padding: 10px 15px;
+  width: 100%;
   color: var(----cardinal);
   font-size: 17px;
   font-family: var(--font-family);
 
   transition: border 0.25s;
+}
+
+.inputPassword {
+  padding-right: 40px;
+}
+
+.eyeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+.eyeButton:hover,
+.eyeButton:focus,
+.eyeButton:active {
+  background: transparent;
+  border: none;
+  outline: none;
+  transform: scale(1);
 }
 
 .textareaForm {
