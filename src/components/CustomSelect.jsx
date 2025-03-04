@@ -10,7 +10,7 @@ const CustomSelect = ({ filer, handleChange, options }) => {
       borderTopRightRadius: '0px',
       borderBottomRightRadius: '0px',
       marginRight: '5px',
-      height: '40px',
+      height: '43.2px',
       width: '120px',
       outline: 'none',
       color: 'var(--cardinal)',
