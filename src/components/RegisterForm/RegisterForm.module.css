@@ -24,13 +24,13 @@
 .link {
   margin-top: 20px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
 }
 
 .linkreg {
   color: inherit;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .linkreg:hover {
