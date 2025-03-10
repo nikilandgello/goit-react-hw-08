@@ -36,21 +36,31 @@ const FaqQuestions = ({ faqs }) => {
             <AnimatePresence initial={false}>
               {openIndexes.includes(index) && (
                 <motion.div
-                  initial={{ opacity: 0, height: 0, visibility: 'hidden' }}
+                  initial={{ height: 0, visibility: 'hidden' }}
                   animate={{
-                    opacity: 1,
                     height: 'auto',
                     visibility: 'visible',
                   }}
-                  exit={{ opacity: 0, height: 0, visibility: 'hidden' }}
+                  exit={{ height: 0, visibility: 'hidden' }}
                   transition={{
-                    opacity: { duration: 0.25 },
                     height: { duration: 0.25 },
                     visibility: { duration: 0 },
                   }}
                   className={css.askedContainer}
                 >
-                  <motion.p className={css.text}>{faq.answer}</motion.p>
+                  <div className={css.faqTextContainer}>
+                    <motion.p
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        opacity: { duration: 0, delay: 0.25 },
+                      }}
+                      className={css.text}
+                    >
+                      {faq.answer}
+                    </motion.p>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>

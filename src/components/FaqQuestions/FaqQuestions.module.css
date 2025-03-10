@@ -47,12 +47,20 @@
   font-size: 14px;
 }
 
+.faqTextContainer {
+  padding-top: 8px;
+  padding-right: 10px;
+}
+
 .textQuestion {
   font-weight: 600;
   user-select: none;
 }
 
 @media screen and (min-width: 768px) {
+  .faqTextContainer {
+    padding-top: 0;
+  }
   .text {
     font-size: 16px;
   }
