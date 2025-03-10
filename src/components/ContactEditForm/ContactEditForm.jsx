@@ -8,11 +8,14 @@ import {
 } from '../../redux/modal/selectors';
 import { closeModal } from '../../redux/modal/slice';
 import { editContact } from '../../redux/contacts/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
+import toast from 'react-hot-toast';
 
 const ContactEditForm = () => {
   const dispatch = useDispatch();
   const isOpen = useSelector(selectModalOpen);
   const selectedContact = useSelector(selectModalContact);
+  const contacts = useSelector(selectContacts);
 
   if (!selectedContact) return null;
 
@@ -22,6 +25,11 @@ const ContactEditForm = () => {
   };
 
   const handleSubmit = (values, actions) => {
+    if (contacts.some(contact => contact.number === values.number)) {
+      toast.error('This number already exists!');
+      actions.resetForm();
+      return;
+    }
     dispatch(editContact({ ...values, id: selectedContact.id }));
     actions.resetForm();
     dispatch(closeModal());

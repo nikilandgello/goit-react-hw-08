@@ -8,10 +8,13 @@ import {
   openAdditionalInfoForm,
 } from '../../redux/additionalInfo/slice';
 import { addContact } from '../../redux/contacts/operations';
+import { selectContacts } from '../../redux/contacts/selectors';
+import toast from 'react-hot-toast';
 
 const ContactForm = () => {
   const dispatch = useDispatch();
   const additionalInfoForm = useSelector(selectAdditionalInfoForm);
+  const contacts = useSelector(selectContacts);
 
   const initialValues = {
     name: '',
@@ -19,6 +22,11 @@ const ContactForm = () => {
   };
 
   const handleSubmit = (values, actions) => {
+    if (contacts.some(contact => contact.number === values.number)) {
+      toast.error('This number already exists!');
+      actions.resetForm();
+      return;
+    }
     dispatch(addContact(values));
     actions.resetForm();
     dispatch(closeAdditionalInfoForm());
