@@ -31,8 +31,3 @@
 ### 🔹 Security and Utilities
 
 - `zxcvbn` – Password strength evaluation
-
-### 🔹 Dev Tools
-
-- `eslint` + plugins – Code linting
-- `@vitejs/plugin-react-swc` – Enhanced React support in Vite
