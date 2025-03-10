@@ -23,7 +23,7 @@ const ContactForm = () => {
 
   const handleSubmit = (values, actions) => {
     if (contacts.some(contact => contact.number === values.number)) {
-      toast.error('This number already exists!');
+      toast.error('A contact with this number already exists!');
       actions.resetForm();
       return;
     }
